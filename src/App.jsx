@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import {
   SandpackCodeEditor,
   SandpackConsole,
@@ -8,6 +8,8 @@ import {
   useSandpack,
 } from "@codesandbox/sandpack-react";
 import "./App.css";
+
+const BasicEditor = lazy(() => import("./BasicEditor"));
 
 const STORAGE_KEY = "react-editor:project:v1";
 const PROJECT_FILES = ["/App.jsx", "/styles.css", "/index.jsx"];
@@ -236,7 +238,13 @@ function Workspace() {
             <span className="save-dot" />
             {saveStatus}
           </div>
-          <button className="button button-secondary" onClick={resetProject}>
+          <a className="button button-secondary route-link" href="/basic">
+            Basic sürüm
+          </a>
+          <button
+            className="button button-secondary reset-button"
+            onClick={resetProject}
+          >
             Örneğe dön
           </button>
           <button className="button button-primary" onClick={runProject}>
@@ -330,7 +338,7 @@ function Workspace() {
   );
 }
 
-export default function App() {
+function AdvancedEditor() {
   const [initialFiles] = useState(loadLocalProject);
 
   return (
@@ -350,4 +358,18 @@ export default function App() {
       <Workspace />
     </SandpackProvider>
   );
+}
+
+export default function App() {
+  const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
+
+  if (normalizedPath === "/basic") {
+    return (
+      <Suspense fallback={<div className="route-loading">Basic editör yükleniyor…</div>}>
+        <BasicEditor />
+      </Suspense>
+    );
+  }
+
+  return <AdvancedEditor />;
 }

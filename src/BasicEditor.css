@@ -1,0 +1,156 @@
+.basic-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  overflow: auto;
+  color: #111827;
+  background: #0b2136 url("./assets/bg.svg") center / cover no-repeat;
+}
+
+.basic-editor-layout {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 92px);
+  height: calc(100dvh - 92px);
+  min-height: 420px;
+  gap: 16px;
+}
+
+.basic-editor-pane,
+.basic-preview-pane {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  overflow: auto;
+  border-radius: 9px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.basic-editor-pane {
+  background: #011627;
+}
+
+.basic-editor-pane pre {
+  height: 100%;
+  min-height: 100%;
+  margin: 0 !important;
+  border: 1px solid #000;
+  border-radius: 9px;
+  background: #002233 !important;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace !important;
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: pre !important;
+}
+
+.basic-preview-pane {
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.basic-preview-pane > div {
+  padding: 16px;
+}
+
+.basic-footer {
+  display: flex;
+  min-height: 52px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.basic-back-link,
+.basic-github-link {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 2px solid #181717;
+  border-radius: 6px;
+  padding: 0 14px;
+  color: white;
+  background: #181717;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.basic-back-link {
+  margin-right: auto;
+}
+
+.basic-back-link:hover,
+.basic-github-link:hover {
+  color: #181717;
+  background: white;
+}
+
+.basic-github-link svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.basic-live-error {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  border: 1px solid white;
+  border-radius: 6px;
+  padding: 13px;
+  overflow: auto;
+  color: #721c24;
+  background: #f8d7da;
+  font: 13px/1.5 "SFMono-Regular", Consolas, monospace;
+}
+
+@media (max-width: 900px) {
+  .basic-page {
+    padding: 16px;
+  }
+
+  .basic-editor-layout {
+    height: auto;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .basic-editor-pane,
+  .basic-preview-pane {
+    flex: none;
+    width: 100%;
+    height: 42vh;
+    min-height: 280px;
+  }
+
+  .basic-footer {
+    flex-wrap: wrap;
+  }
+
+  .basic-live-error {
+    order: 3;
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .basic-page {
+    padding: 10px;
+  }
+
+  .basic-editor-pane pre {
+    font-size: 13px;
+  }
+
+  .basic-back-link,
+  .basic-github-link {
+    min-height: 40px;
+    padding: 0 11px;
+    font-size: 11px;
+  }
+}

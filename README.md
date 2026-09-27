@@ -14,6 +14,7 @@ projeyi tarayıcı içinde derleyerek sonucu izole bir önizleme alanında göst
 - Derleme durumu: Başlatılıyor, Derleniyor, Hazır ve Hata var
 - Değişiklikleri otomatik olarak yerel kaydetme
 - Örnek projeye dönme ve projeyi elle yeniden çalıştırma
+- İlk prototipi `/basic` adresinde görüntüleme
 - Masaüstü, tablet ve mobil uyumlu arayüz
 
 ## Kullanılan teknolojiler
@@ -108,6 +109,13 @@ Console ve hata çıktıları
 
 Editörde yapılan değişiklikler Sandpack'e iletilir, 500 ms'lik beklemeden sonra
 yeniden derlenir ve aynı zamanda `localStorage` içine kaydedilir.
+
+## Basic sürüm
+
+Projenin ilk `react-live` tabanlı prototipi `/basic` route'u altında korunur.
+Bu sayfa tek bir JSX metnini düzenler ve sonucu yan panelde gösterir. Basic sürüm
+referans ve karşılaştırma amacı taşır; çoklu dosya ve yerel kayıt özellikleri ana
+editörde bulunur.
 
 ## Yayına alma
 

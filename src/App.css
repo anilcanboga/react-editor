@@ -13,6 +13,16 @@
   --danger: #ff6b81;
 }
 
+.route-loading {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100dvh;
+  place-items: center;
+  color: var(--muted);
+  background: var(--app-bg);
+  font-size: 13px;
+}
+
 .sp-wrapper {
   min-height: 100vh;
   min-height: 100dvh;
@@ -139,6 +149,7 @@
   padding: 0 13px;
   font-size: 12px;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .button:hover,
@@ -446,7 +457,7 @@ button.output-tab {
 
   .brand small,
   .save-state,
-  .button-secondary,
+  .reset-button,
   .icon-link {
     display: none;
   }
